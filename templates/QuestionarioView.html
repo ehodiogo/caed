@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Questionário</title>
+  <style>
+    label {
+      display: block;
+      margin-top: 1em;
+      font-weight: bold;
+    }
+    select {
+      margin-top: 0.3em;
+    }
+    fieldset {
+      margin-bottom: 2em;
+      border: 1px solid #ccc;
+      padding: 1em;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Questionário Big Five</h1>
+  <form method="post">
+    {% csrf_token %}
+    {% for area, perguntas in areas.items %}
+      <fieldset>
+        <legend><strong>{{ area }}</strong></legend>
+        {% for pergunta in perguntas %}
+          <label>
+            {{ pergunta.pergunta }}
+            <select name="{{ area }}_{{ forloop.counter0 }}" required>
+              <option value="" disabled selected>Selecione uma nota</option>
+              <option value="1">1 - Discordo totalmente</option>
+              <option value="2">2 - Discordo</option>
+              <option value="3">3 - Neutro</option>
+              <option value="4">4 - Concordo</option>
+              <option value="5">5 - Concordo totalmente</option>
+            </select>
+          </label>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    <button type="submit">Enviar Respostas</button>
+  </form>
+</body>
+</html>

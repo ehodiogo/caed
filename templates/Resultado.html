@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultado</title>
+</head>
+<body>
+  <h1>Respostas Recebidas</h1>
+  <ul>
+    {% for key, valor in respostas.items %}
+      <li><strong>{{ key }}:</strong> {{ valor }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'questionario' %}">Voltar ao questionário</a>
+</body>
+</html>
