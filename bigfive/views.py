@@ -16,11 +16,22 @@ def QuestionarioView(request):
 
     if request.method == "POST":
         respostas = {}
+
         for area, perguntas in areas.items():
             for i, pergunta in enumerate(perguntas):
-                key = f"{area}_{i}"
-                valor = request.POST.get(key)
-                respostas[key] = valor
+                resposta_key = f"resposta_{area}_{i}"
+                reversa_key = f"reversa_{area}_{i}"
+                fator_key = f"fator_{area}_{i}"
+
+                resposta_valor = request.POST.get(resposta_key)
+                reversa_valor = request.POST.get(reversa_key) == "True"
+                fator_valor = request.POST.get(fator_key)
+
+                respostas[resposta_key] = {
+                    "resposta": int(resposta_valor) if resposta_valor else None,
+                    "reversa": reversa_valor,
+                    "fator": fator_valor
+                }
 
         return render(request, "Resultado.html", {"respostas": respostas})
 

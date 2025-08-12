@@ -2,35 +2,56 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Questionário</title>
+  <title>Questionário Big Five</title>
   <style>
-    label {
-      display: block;
-      margin-top: 1em;
-      font-weight: bold;
-    }
-    select {
-      margin-top: 0.3em;
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
     }
     fieldset {
-      margin-bottom: 2em;
       border: 1px solid #ccc;
-      padding: 1em;
-      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    legend {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    select {
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #b03a2e;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #922b21;
     }
   </style>
 </head>
 <body>
   <h1>Questionário Big Five</h1>
+
   <form method="post">
     {% csrf_token %}
+
     {% for area, perguntas in areas.items %}
       <fieldset>
-        <legend><strong>{{ area }}</strong></legend>
+        <legend>{{ area }}</legend>
         {% for pergunta in perguntas %}
           <label>
             {{ pergunta.pergunta }}
-            <select name="{{ area }}_{{ forloop.counter0 }}" required>
+            <select name="resposta_{{ area }}_{{ forloop.counter0 }}" required>
               <option value="" disabled selected>Selecione uma nota</option>
               <option value="1">1 - Discordo totalmente</option>
               <option value="2">2 - Discordo</option>
@@ -38,11 +59,18 @@
               <option value="4">4 - Concordo</option>
               <option value="5">5 - Concordo totalmente</option>
             </select>
+
+            <!-- Campo oculto para saber se é reversa -->
+            <input type="hidden" name="reversa_{{ area }}_{{ forloop.counter0 }}" value="{{ pergunta.reversa }}">
+
+            <!-- Campo oculto para saber o fator -->
+            <input type="hidden" name="fator_{{ area }}_{{ forloop.counter0 }}" value="{{ pergunta.fator }}">
           </label>
         {% endfor %}
       </fieldset>
     {% endfor %}
-    <button type="submit">Enviar Respostas</button>
+
+    <button type="submit">Enviar</button>
   </form>
 </body>
 </html>
