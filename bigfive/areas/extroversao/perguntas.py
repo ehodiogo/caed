@@ -1,4 +1,4 @@
-perguntas_area = [
+perguntas_extroversao = [
     {
         "pergunta": "Prefiro participar de grupos de estudo a trabalhar sempre sozinho(a).",
         "fator": "Extroversão",

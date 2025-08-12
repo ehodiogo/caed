@@ -1,4 +1,4 @@
-perguntas_area = [
+perguntas_abertura_a_experiencias = [
     {
         "pergunta": "Imagino cenários de sucesso, como participar de projetos inovadores.",
         "fator": "Fantasia",

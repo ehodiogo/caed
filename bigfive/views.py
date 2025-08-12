@@ -1,3 +1,6 @@
 from django.shortcuts import render
-
-# Create your views here.
+from areas.amabilidade.perguntas import perguntas_amabilidade
+from areas.abertura_a_experiencias.perguntas import perguntas_abertura_a_experiencias
+from areas.conscienciosidade.perguntas import perguntas_conscienciosidade
+from areas.extroversao.perguntas import perguntas_extroversao
+from areas.neuroticismo.perguntas import perguntas_neuroticismo

@@ -1,4 +1,4 @@
-perguntas_area = [
+perguntas_neuroticismo = [
     {
         "pergunta": "Sinto preocupação constante com meu desempenho, prazos e exigências do curso (provas, projetos, estágios).",
         "fator": "Ansiedade",

@@ -1,4 +1,4 @@
-perguntas_area = [
+perguntas_amabilidade = [
     {
         "pergunta": "Sou honesto(a) com professores e colegas sobre minhas limitações.",
         "fator": "Franqueza",

@@ -1,4 +1,4 @@
-perguntas_area = [
+perguntas_conscienciosidade = [
     {
         "pergunta": "Confio na minha capacidade de entender conteúdos complexos se me esforçar.",
         "fator": "Competência",
