@@ -1,76 +1,110 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <title>Questionário Big Five</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
     }
-    fieldset {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
+    .star-rating input {
+      display: none;
     }
-    legend {
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    select {
-      margin-top: 5px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 15px;
-      background: #b03a2e;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
+    .star-rating label {
+      font-size: 2rem;
+      color: #ccc;
       cursor: pointer;
+      padding: 0 5px;
     }
-    button:hover {
-      background: #922b21;
+    .star-rating input:checked ~ label {
+      color: gold;
+    }
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+    .area-container {
+      display: none;
+    }
+    .area-container.active {
+      display: block;
     }
   </style>
 </head>
-<body>
-  <h1>Questionário Big Five</h1>
+<body class="container py-4">
+
+  <h1 class="text-center mb-4">Questionário Big Five</h1>
 
   <form method="post">
     {% csrf_token %}
 
     {% for area, perguntas in areas.items %}
-      <fieldset>
-        <legend>{{ area }}</legend>
+      <div class="area-container {% if forloop.first %}active{% endif %}">
+        <h3 class="mb-3">{{ area }}</h3>
+
         {% for pergunta in perguntas %}
-          <label>
-            {{ pergunta.pergunta }}
-            <select name="resposta_{{ area }}_{{ forloop.counter0 }}" required>
-              <option value="" disabled selected>Selecione uma nota</option>
-              <option value="1">1 - Discordo totalmente</option>
-              <option value="2">2 - Discordo</option>
-              <option value="3">3 - Neutro</option>
-              <option value="4">4 - Concordo</option>
-              <option value="5">5 - Concordo totalmente</option>
-            </select>
-
-            <!-- Campo oculto para saber se é reversa -->
+          <div class="mb-4">
+            <p class="mb-2">{{ pergunta.pergunta }}</p>
+            <div class="star-rating">
+              {% for i in "54321" %}
+                <input type="radio" id="star{{ i }}_{{ forloop.parentloop.counter0 }}_{{ forloop.counter0 }}"
+                       name="resposta_{{ area }}_{{ forloop.counter0 }}" value="{{ i }}" required>
+                <label for="star{{ i }}_{{ forloop.parentloop.counter0 }}_{{ forloop.counter0 }}">★</label>
+              {% endfor %}
+            </div>
             <input type="hidden" name="reversa_{{ area }}_{{ forloop.counter0 }}" value="{{ pergunta.reversa }}">
-
-            <!-- Campo oculto para saber o fator -->
             <input type="hidden" name="fator_{{ area }}_{{ forloop.counter0 }}" value="{{ pergunta.fator }}">
-          </label>
+          </div>
         {% endfor %}
-      </fieldset>
-    {% endfor %}
 
-    <button type="submit">Enviar</button>
+        <div class="d-flex justify-content-between">
+          {% if not forloop.first %}
+            <button type="button" class="btn btn-secondary prev-btn">Voltar</button>
+          {% endif %}
+          {% if not forloop.last %}
+            <button type="button" class="btn btn-primary next-btn">Próxima área</button>
+          {% else %}
+            <button type="submit" class="btn btn-success">Enviar respostas</button>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
   </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const areas = document.querySelectorAll('.area-container');
+      let currentIndex = 0;
+
+      function showArea(index) {
+        areas.forEach((area, i) => {
+          area.classList.toggle('active', i === index);
+        });
+      }
+
+      document.querySelectorAll('.next-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (currentIndex < areas.length - 1) {
+            currentIndex++;
+            showArea(currentIndex);
+          }
+        });
+      });
+
+      document.querySelectorAll('.prev-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            showArea(currentIndex);
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
