@@ -10,6 +10,7 @@
       display: flex;
       flex-direction: row-reverse;
       justify-content: center;
+      gap: 5px;
     }
     .star-rating input {
       display: none;
@@ -18,14 +19,26 @@
       font-size: 2rem;
       color: #ccc;
       cursor: pointer;
-      padding: 0 5px;
-    }
-    .star-rating input:checked ~ label {
-      color: gold;
+      transition: color 0.2s;
     }
     .star-rating label:hover,
     .star-rating label:hover ~ label {
       color: gold;
+    }
+    .star-rating input:checked ~ label {
+      color: gold;
+    }
+    .rating-legend {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
     }
     .area-container {
       display: none;
@@ -51,10 +64,18 @@
             <p class="mb-2">{{ pergunta.pergunta }}</p>
             <div class="star-rating">
               {% for i in "54321" %}
-                <input type="radio" id="star{{ i }}_{{ forloop.parentloop.counter0 }}_{{ forloop.counter0 }}"
-                       name="resposta_{{ area }}_{{ forloop.counter0 }}" value="{{ i }}" required>
+                <input type="radio"
+                       id="star{{ i }}_{{ forloop.parentloop.counter0 }}_{{ forloop.counter0 }}"
+                       name="resposta_{{ area }}_{{ forloop.counter0 }}"
+                       value="{{ 6|add:"-"|add:i }}"
+                       required>
                 <label for="star{{ i }}_{{ forloop.parentloop.counter0 }}_{{ forloop.counter0 }}">★</label>
               {% endfor %}
+            </div>
+            <div class="rating-legend">
+              <span>Discordo totalmente</span>
+              <span>Neutro</span>
+              <span>Concordo totalmente</span>
             </div>
             <input type="hidden" name="reversa_{{ area }}_{{ forloop.counter0 }}" value="{{ pergunta.reversa }}">
             <input type="hidden" name="fator_{{ area }}_{{ forloop.counter0 }}" value="{{ pergunta.fator }}">
