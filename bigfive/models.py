@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from usuario.models import User
 from django.db import models
 
 class Resposta(models.Model):
