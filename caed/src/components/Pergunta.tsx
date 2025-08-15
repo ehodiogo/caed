@@ -4,16 +4,17 @@ import * as React from "react";
 interface PerguntaProps {
   faceta: string;
   pergunta: string;
-  onChange?: (valor: number) => void;
+  reversa?: boolean;
+  onChange?: (valor: number, reversa?: boolean) => void;
 }
 
-const Pergunta = ({ faceta, pergunta, onChange }: PerguntaProps) => {
-  const [resposta, setResposta] = useState(0);
+const Pergunta = ({ faceta, pergunta, reversa, onChange }: PerguntaProps) => {
+  const [resposta, setResposta] = useState<number | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const valor = parseInt(e.target.value);
     setResposta(valor);
-    if (onChange) onChange(valor);
+    if (onChange) onChange(valor, reversa);
   };
 
   return (
@@ -38,7 +39,10 @@ const Pergunta = ({ faceta, pergunta, onChange }: PerguntaProps) => {
           </div>
         ))}
       </div>
-      <div className="d-flex justify-content-between mt-2" style={{ fontSize: "0.8rem" }}>
+      <div
+        className="d-flex justify-content-between mt-2"
+        style={{ fontSize: "0.8rem" }}
+      >
         <span>Discordo totalmente</span>
         <span>Concordo totalmente</span>
       </div>
