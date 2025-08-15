@@ -15,7 +15,11 @@ const todasAreas = [
 ];
 
 type RespostasPorArea = {
-  [area: string]: { idPergunta: number; valor: number; reversa: boolean }[];
+  [area: string]: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[];
+};
+
+type MediaPorFaceta = {
+  [faceta: string]: number;
 };
 
 const abrirDB = (): Promise<IDBDatabase> => {
@@ -29,6 +33,9 @@ const abrirDB = (): Promise<IDBDatabase> => {
       }
       if (!db.objectStoreNames.contains("respostas")) {
         db.createObjectStore("respostas", { keyPath: "area" });
+      }
+      if (!db.objectStoreNames.contains("mediasFacetas")) {
+        db.createObjectStore("mediasFacetas", { keyPath: "area" });
       }
     };
 
@@ -48,9 +55,20 @@ const salvarMedia = async (area: string, media: number) => {
   });
 };
 
+const salvarMediaFacetas = async (area: string, mediasFacetas: MediaPorFaceta) => {
+  const db = await abrirDB();
+  const tx = db.transaction("mediasFacetas", "readwrite");
+  const store = tx.objectStore("mediasFacetas");
+  store.put({ area, mediasFacetas });
+  return new Promise<void>((resolve, reject) => {
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+};
+
 const salvarRespostas = async (
   area: string,
-  respostas: { idPergunta: number; valor: number; reversa: boolean }[]
+  respostas: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[]
 ) => {
   const db = await abrirDB();
   const tx = db.transaction("respostas", "readwrite");
@@ -75,7 +93,7 @@ const lerTodasMedias = async (): Promise<{ area: string; media: number }[]> => {
 };
 
 const lerTodasRespostas = async (): Promise<
-  { area: string; respostas: { idPergunta: number; valor: number; reversa: boolean }[] }[]
+  { area: string; respostas: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[] }[]
 > => {
   const db = await abrirDB();
   const tx = db.transaction("respostas", "readonly");
@@ -87,7 +105,7 @@ const lerTodasRespostas = async (): Promise<
       resolve(
         request.result as {
           area: string;
-          respostas: { idPergunta: number; valor: number; reversa: boolean }[];
+          respostas: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[];
         }[]
       );
     request.onerror = () => reject(request.error);
@@ -101,24 +119,48 @@ const Formulario = () => {
   const [finalizado, setFinalizado] = useState(false);
   const [medias, setMedias] = useState<{ area: string; media: number }[]>([]);
   const [respostasArmazenadas, setRespostasArmazenadas] = useState<
-    { area: string; respostas: { idPergunta: number; valor: number; reversa: boolean }[] }[]
+    { area: string; respostas: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[] }[]
   >([]);
 
   const areaAtual = todasAreas[indiceArea];
 
-  const handleResposta = (indexPergunta: number, valor: number, reversa: boolean) => {
+  const handleResposta = (indexPergunta: number, valor: number, reversa: boolean, faceta: string) => {
     setRespostas((prev) => {
       const areaNome = areaAtual.nome;
       const respostasArea = prev[areaNome] || [];
 
       const novasRespostasArea = [...respostasArea];
-      novasRespostasArea[indexPergunta] = { idPergunta: indexPergunta, valor, reversa };
+      novasRespostasArea[indexPergunta] = { idPergunta: indexPergunta, valor, reversa, faceta };
 
       return {
         ...prev,
         [areaNome]: novasRespostasArea,
       };
     });
+  };
+
+  const calcularMediaFacetas = (
+    respostasArea: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[]
+  ): MediaPorFaceta => {
+    const medias: MediaPorFaceta = {};
+    const contagem: { [faceta: string]: number } = {};
+
+    respostasArea.forEach((r) => {
+      const valorCorrigido = r.reversa ? 6 - r.valor : r.valor;
+      if (!medias[r.faceta]) {
+        medias[r.faceta] = valorCorrigido;
+        contagem[r.faceta] = 1;
+      } else {
+        medias[r.faceta] += valorCorrigido;
+        contagem[r.faceta]++;
+      }
+    });
+
+    Object.keys(medias).forEach((faceta) => {
+      medias[faceta] /= contagem[faceta];
+    });
+
+    return medias;
   };
 
   const proximaArea = async () => {
@@ -140,8 +182,11 @@ const Formulario = () => {
     const media =
       valoresCorrigidos.reduce((acc, v) => acc + v, 0) / valoresCorrigidos.length;
 
+    const mediasFacetas = calcularMediaFacetas(respostasAreaAtual);
+
     try {
       await salvarMedia(areaAtual.nome, media);
+      await salvarMediaFacetas(areaAtual.nome, mediasFacetas);
       await salvarRespostas(areaAtual.nome, respostasAreaAtual);
     } catch (e) {
       console.error("Erro ao salvar no IndexedDB:", e);
@@ -151,9 +196,9 @@ const Formulario = () => {
       setIndiceArea(indiceArea + 1);
     } else {
       try {
-        const medias = await lerTodasMedias();
+        const todasMedias = await lerTodasMedias();
         const todasRespostas = await lerTodasRespostas();
-        setMedias(medias);
+        setMedias(todasMedias);
         setRespostasArmazenadas(todasRespostas);
         setFinalizado(true);
       } catch (e) {
@@ -183,8 +228,7 @@ const Formulario = () => {
             <ul>
               {r.respostas.map((resp) => (
                 <li key={resp.idPergunta}>
-                  Pergunta {resp.idPergunta + 1}: {resp.valor}{" "}
-                  {resp.reversa ? "(reversa)" : ""}
+                  Pergunta {resp.idPergunta + 1}: {resp.valor} {resp.reversa ? "(reversa)" : ""}
                 </li>
               ))}
             </ul>
@@ -204,17 +248,13 @@ const Formulario = () => {
           faceta={item.fator}
           pergunta={item.pergunta}
           reversa={item.reversa}
-          onChange={(valor, rev) => handleResposta(index, valor, rev ?? false)}
+          onChange={(valor, rev) => handleResposta(index, valor, rev ?? false, item.fator)}
         />
       ))}
 
       {erro && <div className="alert alert-danger mt-3">{erro}</div>}
 
-      <button
-        type="button"
-        className="btn btn-primary mt-3"
-        onClick={proximaArea}
-      >
+      <button type="button" className="btn btn-primary mt-3" onClick={proximaArea}>
         {indiceArea < todasAreas.length - 1 ? "Próxima área" : "Finalizar"}
       </button>
     </div>
