@@ -86,3 +86,5 @@ const sensoDeDeverMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Senso de Dever conseguem equilibrar responsabilidades acadêmicas com a flexibilidade necessária para preservar saúde mental e bem-estar, mantendo progresso sustentável sem rigidez ou negligência."
 };
+
+export { sensoDeDeverAlto, sensoDeDeverBaixo, sensoDeDeverMedio };

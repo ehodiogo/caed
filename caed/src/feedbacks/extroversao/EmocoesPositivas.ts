@@ -87,3 +87,5 @@ const emocoesPositivasMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio transitam entre otimismo e objetividade, mantendo equilíbrio entre celebração e análise crítica, favorecendo ambiente acadêmico saudável e produtivo."
 };
+
+export { emocoesPositivasAlto, emocoesPositivasBaixo, emocoesPositivasMedio };

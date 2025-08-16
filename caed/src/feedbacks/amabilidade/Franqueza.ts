@@ -86,3 +86,5 @@ const franquezaMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio mantêm postura madura e ponderada, alternando entre sinceridade e cautela segundo o contexto, favorecendo desenvolvimento acadêmico e pessoal sem comprometer relações e imagem."
 };
+
+export { franquezaAlto, franquezaBaixo, franquezaMedio };

@@ -88,3 +88,5 @@ const complacenciaMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio mantêm equilíbrio saudável entre cooperação e assertividade, promovendo clima colaborativo sem abrir mão de objetivos e necessidades. Desenvolver habilidades de negociação, comunicação clara e definição de limites favorece convivência produtiva e progresso acadêmico."
 };
+
+export { complacenciaAlto, complacenciaBaixo, complacenciaMedio };

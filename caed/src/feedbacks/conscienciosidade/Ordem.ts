@@ -87,3 +87,5 @@ const ordemMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Ordem conseguem equilibrar organização e flexibilidade, favorecendo eficiência sem tornar a rotina excessivamente rígida. Investir em rotinas básicas e revisões regulares aprimora a gestão do tempo e das tarefas, tornando o percurso acadêmico mais produtivo."
 };
+
+export { ordemAlto, ordemBaixo, ordemMedio };

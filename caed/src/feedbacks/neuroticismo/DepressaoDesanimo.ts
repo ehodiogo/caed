@@ -193,3 +193,5 @@ const depressaoMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Depressão (Desânimo) demonstram resiliência suficiente para superar períodos de baixa motivação..."
 };
+
+export { depressaoAlto, depressaoBaixo, depressaoMedio };

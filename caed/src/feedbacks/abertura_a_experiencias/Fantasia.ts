@@ -82,3 +82,5 @@ const fantasiaMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio apresentam equilíbrio saudável entre imaginação e execução, usando criatividade estrategicamente sem perder foco nos resultados acadêmicos."
 };
+
+export { fantasiaAlto, fantasiaBaixo, fantasiaMedio };

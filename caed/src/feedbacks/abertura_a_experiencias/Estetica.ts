@@ -82,3 +82,5 @@ const esteticaMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio equilibram valorização visual e eficiência acadêmica, aproveitando benefícios de ambiente agradável e materiais organizados sem comprometer execução das tarefas."
 };
+
+export { esteticaAlto, esteticaBaixo, esteticaMedio };

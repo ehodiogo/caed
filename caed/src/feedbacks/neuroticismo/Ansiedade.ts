@@ -263,3 +263,5 @@ const ansiedadeMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio de Ansiedade mantêm atenção saudável aos desafios acadêmicos..."
 };
+
+export { ansiedadeAlto, ansiedadeBaixo, ansiedadeMedio };

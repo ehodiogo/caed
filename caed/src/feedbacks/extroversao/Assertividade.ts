@@ -84,3 +84,5 @@ const assertividadeMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Assertividade conseguem equilibrar exposição e escuta, fortalecendo participação acadêmica e desempenho em projetos coletivos."
 };
+
+export { assertividadeAlto, assertividadeBaixo, assertividadeMedio };

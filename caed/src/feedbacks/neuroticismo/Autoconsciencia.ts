@@ -193,3 +193,5 @@ const autoconscienciaMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Autoconsciência apresentam postura equilibrada: são atentos à própria imagem, mas, com apoio e preparo, conseguem participar de forma construtiva..."
 };
+
+export { autoconscienciaAlto, autoconscienciaBaixo, autoconscienciaMedio };

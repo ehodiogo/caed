@@ -85,3 +85,5 @@ const competenciaMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Competência (Autoeficácia) desenvolvem trajetória acadêmica segura e progressiva, equilibrando confiança nas próprias habilidades e abertura para aprimoramento, promovendo autonomia e aprendizado contínuo."
 };
+
+export { competenciaAlto, competenciaBaixo, competenciaMedio };

@@ -207,3 +207,5 @@ const raivaHostilidadeMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Raiva/Hostilidade apresentam envolvimento emocional saudável com suas atividades..."
 };
+
+export { raivaHostilidadeAlto, raivaHostilidadeBaixo, raivaHostilidadeMedio };

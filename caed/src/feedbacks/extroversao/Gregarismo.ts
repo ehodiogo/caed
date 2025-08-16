@@ -207,3 +207,5 @@ const gregarismoMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Gregarismo demonstram versatilidade ao conciliar o aprendizado coletivo com o desenvolvimento autônomo..."
 };
+
+export { gregarismoAlto, gregarismoBaixo, gregarismoMedio };

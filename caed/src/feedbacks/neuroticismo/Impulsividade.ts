@@ -195,3 +195,5 @@ const impulsividadeMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Impulsividade demonstram equilíbrio razoável entre disciplina e abertura a distrações..."
 };
+
+export { impulsividadeAlto, impulsividadeBaixo, impulsividadeMedio };

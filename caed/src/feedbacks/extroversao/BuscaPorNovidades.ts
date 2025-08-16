@@ -86,3 +86,5 @@ const buscaPorNovidadesMedio: Avaliacao = {
   ],
   conclusao: "Graduandos com nível médio da faceta Busca por Novidades conciliam rotinas eficazes com abertura seletiva à experimentação, promovendo evolução acadêmica gradual e sustentável."
 };
+
+export { buscaPorNovidadesAlto, buscaPorNovidadesBaixo, buscaPorNovidadesMedio };
