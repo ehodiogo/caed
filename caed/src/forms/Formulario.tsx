@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Pergunta from "../components/Pergunta.tsx";
+import QuantiaPerguntas from "../components/QuantiaPerguntas.tsx";
 import { PerguntasAmabilidade } from "../questions/amabilidade/Perguntas.ts";
 import { PerguntasNeuroticismo } from "../questions/neuroticismo/Perguntas.ts";
 import { PerguntasExtroversao } from "../questions/extroversao/Perguntas.ts";
@@ -240,6 +241,10 @@ const Formulario = () => {
 
   return (
     <div className="container mt-4">
+    <QuantiaPerguntas
+      areas={todasAreas.map((a) => a.nome)}
+      quantias={todasAreas.map((a) => a.perguntas.length)}
+    />
       <h2>{areaAtual.nome}</h2>
 
       {areaAtual.perguntas.map((item, index) => (
