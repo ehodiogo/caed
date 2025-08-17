@@ -270,7 +270,7 @@ export const PerguntasExtroversao: Pergunta[] = [
   },
   {
     pergunta: "Procuro métodos novos de estudo para manter a motivação.",
-    fator: "Busca de Novidades",
+    fator: "Busca por Novidades",
     reversa: false,
     feedbacks: [
       {
@@ -292,7 +292,7 @@ export const PerguntasExtroversao: Pergunta[] = [
   },
   {
     pergunta: "Fico entusiasmado(a) ao testar abordagens diferentes.",
-    fator: "Busca de Novidades",
+    fator: "Busca por Novidades",
     reversa: false,
     feedbacks: [
       {
@@ -314,7 +314,7 @@ export const PerguntasExtroversao: Pergunta[] = [
   },
   {
     pergunta: "Gosto de variar horários e locais de estudo.",
-    fator: "Busca de Novidades",
+    fator: "Busca por Novidades",
     reversa: false,
     feedbacks: [
       {
@@ -337,7 +337,7 @@ export const PerguntasExtroversao: Pergunta[] = [
   {
     pergunta:
       "Busco desafios adicionais, como eventos ou competições acadêmicas.",
-    fator: "Busca de Novidades",
+    fator: "Busca por Novidades",
     reversa: false,
     feedbacks: [
       {
@@ -359,7 +359,7 @@ export const PerguntasExtroversao: Pergunta[] = [
   },
   {
     pergunta: "Testo novas ferramentas digitais para melhorar desempenho.",
-    fator: "Busca de Novidades",
+    fator: "Busca por Novidades",
     reversa: false,
     feedbacks: [
       {
@@ -381,7 +381,7 @@ export const PerguntasExtroversao: Pergunta[] = [
   },
   {
     pergunta: "Mantenho-me fiel a métodos tradicionais e evito novidades.",
-    fator: "Busca de Novidades",
+    fator: "Busca por Novidades",
     reversa: true,
     feedbacks: [
       {

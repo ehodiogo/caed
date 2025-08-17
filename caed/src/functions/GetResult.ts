@@ -110,9 +110,12 @@ const feedbacks: Record<string, FeedbackNivel> = {
 };
 
 function getResultFeedback(value: number): "Alto" | "Médio" | "Baixo" {
-  if (value >= alto[0] && value <= alto[1]) return "Alto";
-  if (value >= medio[0] && value <= medio[1]) return "Médio";
-  if (value >= baixo[0] && value <= baixo[1]) return "Baixo";
+    const v = parseFloat(value.toFixed(2));
+
+  if (v >= alto[0] && v <= alto[1]) return "Alto";
+  if (v >= medio[0] && v <= medio[1]) return "Médio";
+  if (v >= baixo[0] && v <= baixo[1]) return "Baixo";
+
   throw new Error("Valor fora do intervalo esperado");
 }
 
@@ -123,7 +126,7 @@ export function getFeedback(faceta: string, value: number): string {
     return `⚠️ Faceta "${faceta}" não encontrada.`;
   }
 
-    // TODO: aqui da p melhorar esses resultados sei la criar um componente
+  // TODO: aqui da p melhorar esses resultados, passando só o facetaFeedback[nivel] e usando os dados dentro do Resultado.tsx
   return facetaFeedback[nivel].definicao;
 }
 

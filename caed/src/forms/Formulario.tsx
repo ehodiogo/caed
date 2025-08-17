@@ -1,19 +1,6 @@
 import { useState } from "react";
-import Pergunta from "../components/Pergunta.tsx";
-import QuantiaPerguntas from "../components/QuantiaPerguntas.tsx";
-import { PerguntasAmabilidade } from "../questions/amabilidade/Perguntas.ts";
-import { PerguntasNeuroticismo } from "../questions/neuroticismo/Perguntas.ts";
-import { PerguntasExtroversao } from "../questions/extroversao/Perguntas.ts";
-import { PerguntasConscienciosidade } from "../questions/conscienciosidade/Perguntas.ts";
-import { PerguntasAberturaExperiencias } from "../questions/abertura_a_experiencias/Perguntas.ts";
-
-const todasAreas = [
-  { nome: "Amabilidade", perguntas: PerguntasAmabilidade },
-  { nome: "Neuroticismo", perguntas: PerguntasNeuroticismo },
-  { nome: "Extroversão", perguntas: PerguntasExtroversao },
-  { nome: "Conscienciosidade", perguntas: PerguntasConscienciosidade },
-  { nome: "Abertura a Experiências", perguntas: PerguntasAberturaExperiencias },
-];
+import todasAreas from "../questions/todasAreas.ts";
+import { useNavigate } from "react-router-dom";
 
 type RespostasPorArea = {
   [area: string]: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[];
@@ -117,11 +104,11 @@ const Formulario = () => {
   const [indiceArea, setIndiceArea] = useState(0);
   const [respostas, setRespostas] = useState<RespostasPorArea>({});
   const [erro, setErro] = useState("");
-  const [finalizado, setFinalizado] = useState(false);
-  const [medias, setMedias] = useState<{ area: string; media: number }[]>([]);
-  const [respostasArmazenadas, setRespostasArmazenadas] = useState<
+  const [, setMedias] = useState<{ area: string; media: number }[]>([]);
+  const [, setRespostasArmazenadas] = useState<
     { area: string; respostas: { idPergunta: number; valor: number; reversa: boolean; faceta: string }[] }[]
   >([]);
+  const navigate = useNavigate();
 
   const areaAtual = todasAreas[indiceArea];
 
@@ -193,6 +180,8 @@ const Formulario = () => {
       console.error("Erro ao salvar no IndexedDB:", e);
     }
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (indiceArea < todasAreas.length - 1) {
       setIndiceArea(indiceArea + 1);
     } else {
@@ -201,67 +190,76 @@ const Formulario = () => {
         const todasRespostas = await lerTodasRespostas();
         setMedias(todasMedias);
         setRespostasArmazenadas(todasRespostas);
-        setFinalizado(true);
+
+        navigate("/resultado");
       } catch (e) {
         console.error("Erro ao ler dados do IndexedDB:", e);
       }
     }
   };
 
-  if (finalizado) {
-    return (
-      <div className="container mt-4">
-        <h2>Resumo do Questionário</h2>
-
-        <h3>Médias por área</h3>
-        <ul>
-          {medias.map((m) => (
-            <li key={m.area}>
-              {m.area}: {m.media.toFixed(2)}
-            </li>
-          ))}
-        </ul>
-
-        <h3>Respostas completas</h3>
-        {respostasArmazenadas.map((r) => (
-          <div key={r.area} style={{ marginBottom: "20px" }}>
-            <strong>{r.area}</strong>
-            <ul>
-              {r.respostas.map((resp) => (
-                <li key={resp.idPergunta}>
-                  Pergunta {resp.idPergunta + 1}: {resp.valor} {resp.reversa ? "(reversa)" : ""}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    );
-  }
+  const respostasAreaAtual = respostas[areaAtual.nome] || [];
+  const respondidas = respostasAreaAtual.filter((r) => r !== undefined).length;
+  const total = areaAtual.perguntas.length;
+  const progresso = Math.round((respondidas / total) * 100);
 
   return (
     <div className="container mt-4">
-    <QuantiaPerguntas
-      areas={todasAreas.map((a) => a.nome)}
-      quantias={todasAreas.map((a) => a.perguntas.length)}
-    />
-      <h2>{areaAtual.nome}</h2>
+      <div className="alert alert-light text-center shadow-sm">
+        <div className="d-flex justify-content-around">
+          <span>😠 1 - Discordo totalmente</span>
+          <span>🙁 2 - Discordo parcialmente</span>
+          <span>😐 3 - Neutro</span>
+          <span>🙂 4 - Concordo parcialmente</span>
+          <span>😄 5 - Concordo totalmente</span>
+        </div>
+      </div>
+      <h2 className="text-center mb-4">{areaAtual.nome}</h2>
 
-      {areaAtual.perguntas.map((item, index) => (
-        <Pergunta
-          key={`${areaAtual.nome}-${index}`}
-          faceta={item.fator}
-          pergunta={item.pergunta}
-          reversa={item.reversa}
-          onChange={(valor, rev) => handleResposta(index, valor, rev ?? false, item.fator)}
-        />
-      ))}
+      <div className="progress mb-4" style={{ height: "25px" }}>
+        <div
+          className="progress-bar bg-success"
+          role="progressbar"
+          style={{ width: `${progresso}%` }}
+        >
+          {respondidas}/{total}
+        </div>
+      </div>
+
+      {areaAtual.perguntas.map((item, index) => {
+        const respostaAtual = respostasAreaAtual[index]?.valor || 0;
+
+        return (
+          <div key={`${areaAtual.nome}-${index}`} className="card mb-3 shadow-sm">
+            <div className="card-body">
+              <p className="fw-bold">{item.pergunta}</p>
+
+              <div className="d-flex justify-content-between">
+                {[1, 2, 3, 4, 5].map((valor) => (
+                  <button
+                    key={valor}
+                    className={`btn ${
+                      respostaAtual === valor ? "btn-success" : "btn-outline-secondary"
+                    } rounded-circle`}
+                    style={{ width: "50px", height: "50px", fontSize: "1.2rem" }}
+                    onClick={() => handleResposta(index, valor, item.reversa, item.fator)}
+                  >
+                    {["😠", "🙁", "😐", "🙂", "😄"][valor - 1]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })}
 
       {erro && <div className="alert alert-danger mt-3">{erro}</div>}
 
-      <button type="button" className="btn btn-primary mt-3" onClick={proximaArea}>
-        {indiceArea < todasAreas.length - 1 ? "Próxima área" : "Finalizar"}
-      </button>
+      <div className="text-center">
+        <button type="button" className="btn btn-primary mt-3 px-4" onClick={proximaArea}>
+          {indiceArea < todasAreas.length - 1 ? "Próxima área" : "Finalizar"}
+        </button>
+      </div>
     </div>
   );
 };
