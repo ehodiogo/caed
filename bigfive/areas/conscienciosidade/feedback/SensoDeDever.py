@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const sensoDeDeverAlto: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Senso de Dever",
-  nivel: "Alto",
+sensoDeDeverAlto = {
+  "area": "Conscienciosidade",
+  "faceta": "Senso de Dever",
+  "nivel": "Alto",
   "definicao": "A faceta Senso de Dever refere-se ao sentimento de responsabilidade e obrigação de cumprir metas e compromissos acadêmicos. Em nível alto, o graduando demonstra forte comprometimento com o cronograma de estudos e atividades, mantendo regularidade mesmo diante de cansaço ou desmotivação.",
   "caracteristicas": [
     { "nome": "Comprometimento Consistente", "descricao": ["Cumpre horários de leitura, laboratório ou escrita mesmo quando está cansado(a) ou pouco motivado(a)."] },
@@ -28,10 +27,10 @@ const sensoDeDeverAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto da faceta Senso de Dever demonstram forte compromisso com metas e obrigações acadêmicas, favorecendo produtividade e avanço contínuo. Equilibrar disciplina com descanso e flexibilidade é essencial para evitar rigidez excessiva e desgaste."
 };
 
-const sensoDeDeverBaixo: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Senso de Dever",
-  nivel: "Baixo",
+sensoDeDeverBaixo = {
+  "area": "Conscienciosidade",
+  "faceta": "Senso de Dever",
+  "nivel": "Baixo",
   "definicao": "A faceta Senso de Dever, em nível baixo, caracteriza-se pela dificuldade em cumprir compromissos e responsabilidades acadêmicas de forma consistente, podendo levar à procrastinação e não cumprimento de prazos.",
   "caracteristicas": [
     { "nome": "Falta de Comprometimento Consistente", "descricao": ["Pode deixar de cumprir horários de estudo ou laboratório mesmo quando a tarefa é essencial."] },
@@ -57,10 +56,10 @@ const sensoDeDeverBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo da faceta Senso de Dever enfrentam desafios na formação de hábitos consistentes e cumprimento de prazos. Implementar metas menores, utilizar lembretes e fortalecer compromisso por meio de parcerias pode melhorar produtividade e avanço contínuo."
 };
 
-const sensoDeDeverMedio: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Senso de Dever",
-  nivel: "Médio",
+sensoDeDeverMedio = {
+  "area": "Conscienciosidade",
+  "faceta": "Senso de Dever",
+  "nivel": "Médio",
   "definicao": "A faceta Senso de Dever, em nível médio, caracteriza-se pelo cumprimento das principais responsabilidades acadêmicas, porém com flexibilidade para adaptar rotinas conforme o contexto.",
   "caracteristicas": [
     { "nome": "Comprometimento Moderado", "descricao": ["Cumpre horários de estudo e principais obrigações acadêmicas, mas pode flexibilizar rotinas quando necessário."] },
@@ -86,5 +85,3 @@ const sensoDeDeverMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio da faceta Senso de Dever conseguem equilibrar responsabilidades acadêmicas com a flexibilidade necessária para preservar saúde mental e bem-estar, mantendo progresso sustentável sem rigidez ou negligência."
 };
-
-export { sensoDeDeverAlto, sensoDeDeverBaixo, sensoDeDeverMedio };

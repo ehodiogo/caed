@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const competenciaAlto: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Competência (Autoeficácia)",
-  nivel: "Alto",
+competenciaAlto = {
+  "area": "Conscienciosidade",
+  "faceta": "Competência (Autoeficácia)",
+  "nivel": "Alto",
   "definicao": "A faceta Competência (Autoeficácia) refere-se à crença na própria capacidade de aprender, resolver problemas e atingir metas, mesmo diante dos desafios inerentes à graduação. Em nível alto, esse traço manifesta-se por confiança robusta, permitindo ao estudante enfrentar tarefas complexas com dedicação e persistência — impulsionando o progresso mesmo em fases difíceis dos projetos de curso.",
   "caracteristicas": [
     { "nome": "Confiança Elevada", "descricao": ["Confia plenamente em sua capacidade de entender conteúdos complexos desde que se esforce, mesmo quando depara com desafios significativos."] },
@@ -28,10 +27,10 @@ const competenciaAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto da faceta Competência (Autoeficácia) demonstram notável capacidade de enfrentar desafios complexos com persistência e autoconfiança. Essa postura impulsiona o progresso acadêmico e fortalece a resiliência, desde que acompanhada de planejamento realista e autocrítica construtiva — garantindo crescimento sustentável ao longo da graduação."
 };
 
-const competenciaBaixo: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Competência (Autoeficácia)",
-  nivel: "Baixo",
+competenciaBaixo = {
+  "area": "Conscienciosidade",
+  "faceta": "Competência (Autoeficácia)",
+  "nivel": "Baixo",
   "definicao": "A faceta Competência (Autoeficácia) em nível baixo caracteriza-se pela insegurança e pela dúvida em relação à própria capacidade de aprender, resolver problemas e atingir metas na graduação, podendo levar à procrastinação ou abandono de tarefas desafiadoras.",
   "caracteristicas": [
     { "nome": "Insegurança em Relação às Próprias Habilidades", "descricao": ["Demonstra dúvidas quanto à capacidade de compreender conteúdos complexos e solucionar desafios significativos."] },
@@ -56,10 +55,10 @@ const competenciaBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo da faceta Competência (Autoeficácia) enfrentam desafios significativos devido à insegurança e à falta de autoconfiança. Adotando estratégias que promovam pequenos sucessos e fortalecendo suporte externo, é possível transformar gradualmente essa insegurança em base sólida para aprendizado e crescimento contínuo."
 };
 
-const competenciaMedio: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Competência (Autoeficácia)",
-  nivel: "Médio",
+competenciaMedio = {
+  "area": "Conscienciosidade",
+  "faceta": "Competência (Autoeficácia)",
+  "nivel": "Médio",
   "definicao": "A faceta Competência (Autoeficácia), em nível médio, indica equilíbrio entre confiança nas próprias capacidades e reconhecimento das próprias limitações. O graduando acredita ser capaz de aprender conteúdos complexos, mas pode buscar validação externa em situações de maior dificuldade.",
   "caracteristicas": [
     { "nome": "Confiança Moderada", "descricao": ["Acredita que pode superar desafios acadêmicos, especialmente com dedicação consistente, mas reconhece necessidade de apoio ou revisão em tópicos mais complexos."] },
@@ -85,5 +84,3 @@ const competenciaMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio da faceta Competência (Autoeficácia) desenvolvem trajetória acadêmica segura e progressiva, equilibrando confiança nas próprias habilidades e abertura para aprimoramento, promovendo autonomia e aprendizado contínuo."
 };
-
-export { competenciaAlto, competenciaBaixo, competenciaMedio };

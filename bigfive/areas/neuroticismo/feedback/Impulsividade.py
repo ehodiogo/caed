@@ -1,8 +1,8 @@
 
-const impulsividadeAlto: Avaliacao = {
-  area: "Neuroticismo",
-  faceta: "Impulsividade",
-  nivel: "Alto",
+impulsividadeAlto = {
+  "area": "Neuroticismo",
+  "faceta": "Impulsividade",
+  "nivel": "Alto",
   "definicao": "A faceta Impulsividade, em nível alto, caracteriza-se pela tendência a ceder a impulsos momentâneos e distrações, abandonando o planejamento em busca de atividades mais prazerosas...",
   "caracteristicas": [
     {
@@ -63,10 +63,10 @@ const impulsividadeAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto da faceta Impulsividade tendem a abandonar seus planejamentos em prol de gratificações imediatas, o que compromete regularidade e qualidade do trabalho acadêmico..."
 };
 
-const impulsividadeBaixo: Avaliacao = {
-  area: "Neuroticismo",
-  faceta: "Impulsividade",
-  nivel: "Baixo",
+impulsividadeBaixo = {
+  "area": "Neuroticismo",
+  "faceta": "Impulsividade",
+  "nivel": "Baixo",
   "definicao": "A faceta Impulsividade, em nível baixo, indica alto grau de autocontrole e disciplina, permitindo manter o cronograma acadêmico mesmo diante de distrações...",
   "caracteristicas": [
     {
@@ -127,10 +127,10 @@ const impulsividadeBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo da faceta Impulsividade demonstram excelente controle sobre suas rotinas acadêmicas, favorecendo continuidade e qualidade dos projetos..."
 };
 
-const impulsividadeMedio: Avaliacao = {
-  area: "Neuroticismo",
-  faceta: "Impulsividade",
-  nivel: "Médio",
+impulsividadeMedio = {
+  "area": "Neuroticismo",
+  "faceta": "Impulsividade",
+  "nivel": "Médio",
   "definicao": "A faceta Impulsividade, em nível médio, caracteriza estudantes que mantêm equilíbrio entre disciplina e flexibilidade...",
   "caracteristicas": [
     {

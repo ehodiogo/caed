@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const franquezaAlto: Avaliacao = {
-  area: "Amabilidade",
-  faceta: "Franqueza",
-  nivel: "Alto",
+franquezaAlto = {
+  "area": "Amabilidade",
+  "faceta": "Franqueza",
+  "nivel": "Alto",
   "definicao": "A faceta Franqueza, em nível alto, refere-se à inclinação para ser direto(a) e sincero(a) ao comunicar sentimentos, opiniões e percepções, tanto em trabalhos de equipe quanto em discussões com professores...",
   "caracteristicas": [
     { "nome": "Transparência sobre Limitações", "descricao": ["Prefere ser honesto(a) com docentes e colegas acerca das suas dificuldades e desafios."] },
@@ -29,10 +28,10 @@ const franquezaAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto favorecem transparência e aprimoramento coletivo. Combinando honestidade com comunicação empática e construtiva, transformam essa característica em ferramenta poderosa para desenvolvimento pessoal e evolução do ambiente acadêmico."
 };
 
-const franquezaBaixo: Avaliacao = {
-  area: "Amabilidade",
-  faceta: "Franqueza",
-  nivel: "Baixo",
+franquezaBaixo = {
+  "area": "Amabilidade",
+  "faceta": "Franqueza",
+  "nivel": "Baixo",
   "definicao": "A faceta Franqueza, em nível baixo, indica tendência a omitir informações ou evitar sinceridade em situações que exigem comunicação aberta de dúvidas e dificuldades...",
   "caracteristicas": [
     { "nome": "Reticência na Comunicação", "descricao": ["Tende a não ser completamente honesto(a) sobre limitações e desafios com professores e colegas."] },
@@ -58,10 +57,10 @@ const franquezaBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo podem enfrentar desafios no desenvolvimento pessoal e na colaboração acadêmica. Ao aumentar transparência e comunicação honesta, é possível superar barreiras e promover ambiente de trabalho mais aberto e colaborativo."
 };
 
-const franquezaMedio: Avaliacao = {
-  area: "Amabilidade",
-  faceta: "Franqueza",
-  nivel: "Médio",
+franquezaMedio = {
+  "area": "Amabilidade",
+  "faceta": "Franqueza",
+  "nivel": "Médio",
   "definicao": "A faceta Franqueza, em nível médio, representa equilíbrio entre sinceridade e cautela na comunicação. O estudante tende a ser honesto em relação às suas dúvidas e limitações quando necessário...",
   "caracteristicas": [
     { "nome": "Sinceridade Moderada", "descricao": ["Geralmente é honesto(a) sobre limitações e desafios, mas pode optar por omitir dificuldades em situações de risco de julgamento."] },
@@ -86,5 +85,3 @@ const franquezaMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio mantêm postura madura e ponderada, alternando entre sinceridade e cautela segundo o contexto, favorecendo desenvolvimento acadêmico e pessoal sem comprometer relações e imagem."
 };
-
-export { franquezaAlto, franquezaBaixo, franquezaMedio };

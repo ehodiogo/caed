@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const esteticaAlto: Avaliacao = {
-  area: "Abertura à Experiência",
-  faceta: "Estética",
-  nivel: "Alto",
+esteticaAlto = {
+  "area": "Abertura à Experiência",
+  "faceta": "Estética",
+  "nivel": "Alto",
   "definicao": "A faceta Estética, em nível alto, refere-se à valorização da beleza e da qualidade visual dos materiais, ambientes e recursos utilizados no trabalho acadêmico...",
   "caracteristicas": [
     { "nome": "Apreciação Visual", "descricao": ["Valoriza materiais de pesquisa, slides, resumos e anotações que sejam visualmente bem organizados e atraentes."] },
@@ -27,10 +26,10 @@ const esteticaAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto beneficiam-se de ambientes e materiais visualmente organizados, elevando motivação e bem-estar, desde que equilibrem cuidado com aparência e produtividade."
 };
 
-const esteticaBaixo: Avaliacao = {
-  area: "Abertura à Experiência",
-  faceta: "Estética",
-  nivel: "Baixo",
+esteticaBaixo = {
+  "area": "Abertura à Experiência",
+  "faceta": "Estética",
+  "nivel": "Baixo",
   "definicao": "A faceta Estética, em nível baixo, indica menor preocupação com a aparência visual dos materiais e do ambiente de trabalho...",
   "caracteristicas": [
     { "nome": "Foco no Conteúdo", "descricao": ["Prioriza desenvolvimento e qualidade do conteúdo, com pouca ênfase na organização visual."] },
@@ -54,10 +53,10 @@ const esteticaBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo focam mais no conteúdo e execução prática, mas incorporar gradualmente estímulos visuais pode aumentar motivação e tornar experiência de estudo mais agradável."
 };
 
-const esteticaMedio: Avaliacao = {
-  area: "Abertura à Experiência",
-  faceta: "Estética",
-  nivel: "Médio",
+esteticaMedio = {
+  "area": "Abertura à Experiência",
+  "faceta": "Estética",
+  "nivel": "Médio",
   "definicao": "A faceta Estética, em nível médio, caracteriza-se por equilíbrio entre apreço pela organização visual e foco no conteúdo acadêmico...",
   "caracteristicas": [
     { "nome": "Organização Visual Moderada", "descricao": ["Gosta de materiais e ambientes visualmente agradáveis, mas investe apenas tempo necessário para clareza e organização mínima."] },
@@ -82,5 +81,3 @@ const esteticaMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio equilibram valorização visual e eficiência acadêmica, aproveitando benefícios de ambiente agradável e materiais organizados sem comprometer execução das tarefas."
 };
-
-export { esteticaAlto, esteticaBaixo, esteticaMedio };

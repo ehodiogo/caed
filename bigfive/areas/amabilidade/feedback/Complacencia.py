@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const complacenciaAlto: Avaliacao = {
-  area: "Amabilidade",
-  faceta: "Complacência",
-  nivel: "Alto",
+complacenciaAlto = {
+  "area": "Amabilidade",
+  "faceta": "Complacência",
+  "nivel": "Alto",
   "definicao": "A faceta Complacência, em nível alto, refere-se à inclinação para evitar conflitos e buscar relações harmoniosas, procurando sempre entendimento mútuo em situações de divergência...",
   "caracteristicas": [
     { "nome": "Evasão de Conflitos", "descricao": ["Procura evitar conflitos desnecessários com colegas e professores, muitas vezes abrindo mão de preferências pessoais para manter a harmonia."] },
@@ -30,10 +29,10 @@ const complacenciaAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto desfrutam de ambiente de trabalho amigável e cooperativo, benéfico para integração e troca de conhecimentos. Equilibrar busca pela harmonia com preservação de objetivos é essencial para desempenho acadêmico sustentável."
 };
 
-const complacenciaBaixo: Avaliacao = {
-  area: "Amabilidade",
-  faceta: "Complacência",
-  nivel: "Baixo",
+complacenciaBaixo = {
+  "area": "Amabilidade",
+  "faceta": "Complacência",
+  "nivel": "Baixo",
   "definicao": "A faceta Complacência, em nível baixo, caracteriza-se por uma postura menos voltada a evitar conflitos, evidenciando tendência a ser mais competitivo(a) e firme nas interações...",
   "caracteristicas": [
     { "nome": "Postura Competitiva", "descricao": ["Defende opiniões com firmeza, mesmo que surjam divergências no grupo."] },
@@ -60,10 +59,10 @@ const complacenciaBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo tendem a ser mais competitivos e firmes, vantagem para defender interesses e promover inovações. Equilibrar assertividade com empatia evita conflitos excessivos e garante ambiente colaborativo e produtivo."
 };
 
-const complacenciaMedio: Avaliacao = {
-  area: "Amabilidade",
-  faceta: "Complacência",
-  nivel: "Médio",
+complacenciaMedio = {
+  "area": "Amabilidade",
+  "faceta": "Complacência",
+  "nivel": "Médio",
   "definicao": "A faceta Complacência, em nível médio, indica perfil equilibrado entre busca por harmonia e defesa dos próprios interesses...",
   "caracteristicas": [
     { "nome": "Equilíbrio entre Harmonia e Firmeza", "descricao": ["Busca manter relações harmoniosas, mas expõe necessidades e preferências quando necessário."] },
@@ -88,5 +87,3 @@ const complacenciaMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio mantêm equilíbrio saudável entre cooperação e assertividade, promovendo clima colaborativo sem abrir mão de objetivos e necessidades. Desenvolver habilidades de negociação, comunicação clara e definição de limites favorece convivência produtiva e progresso acadêmico."
 };
-
-export { complacenciaAlto, complacenciaBaixo, complacenciaMedio };

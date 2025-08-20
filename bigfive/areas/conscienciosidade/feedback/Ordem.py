@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const ordemAlto: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Ordem",
-  nivel: "Alto",
+ordemAlto = {
+  "area": "Conscienciosidade",
+  "faceta": "Ordem",
+  "nivel": "Alto",
   "definicao": "A faceta Ordem envolve a tendência a organizar, estruturar e manter um ambiente e cronograma de trabalho bem planejados. Em nível alto, o graduando demonstra rigor notável na organização de materiais, uso de ferramentas de planejamento e manutenção de um ambiente de estudo eficiente.",
   "caracteristicas": [
     { "nome": "Organização Sistemática", "descricao": ["Gosta de organizar materiais (artigos, livros, anotações) de forma estruturada e sistemática."] },
@@ -29,10 +28,10 @@ const ordemAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto da faceta Ordem desfrutam de rotina estruturada e eficiente, contribuindo para o cumprimento de prazos e gerenciamento de múltiplas demandas. Equilibrar zelo pela organização com flexibilidade garante que o planejamento não se torne obstáculo à produtividade."
 };
 
-const ordemBaixo: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Ordem",
-  nivel: "Baixo",
+ordemBaixo = {
+  "area": "Conscienciosidade",
+  "faceta": "Ordem",
+  "nivel": "Baixo",
   "definicao": "A faceta Ordem, em nível baixo, caracteriza-se pela dificuldade em manter um ambiente e cronograma de trabalho organizados, prejudicando a eficiência na gestão das tarefas da graduação.",
   "caracteristicas": [
     { "nome": "Desorganização dos Materiais", "descricao": ["Dificuldade em organizar artigos, livros, apostilas e anotações de forma sistemática."] },
@@ -58,10 +57,10 @@ const ordemBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo da faceta Ordem enfrentam desafios na gestão de suas atividades, podendo comprometer eficiência e cumprimento de prazos. Implementar gradualmente hábitos organizacionais e usar ferramentas simples melhora a rotina e acesso a materiais essenciais."
 };
 
-const ordemMedio: Avaliacao = {
-  area: "Conscienciosidade",
-  faceta: "Ordem",
-  nivel: "Médio",
+ordemMedio = {
+  "area": "Conscienciosidade",
+  "faceta": "Ordem",
+  "nivel": "Médio",
   "definicao": "A faceta Ordem, em nível médio, caracteriza-se por equilíbrio entre necessidade de organização e flexibilidade para lidar com as demandas do curso. O graduando adota práticas organizacionais básicas, mas alterna períodos de maior estruturação com momentos de adaptação.",
   "caracteristicas": [
     { "nome": "Organização Moderada", "descricao": ["Mantém materiais, anotações e espaço de estudo razoavelmente organizados, com lapsos pontuais em períodos de maior pressão."] },
@@ -87,5 +86,3 @@ const ordemMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio da faceta Ordem conseguem equilibrar organização e flexibilidade, favorecendo eficiência sem tornar a rotina excessivamente rígida. Investir em rotinas básicas e revisões regulares aprimora a gestão do tempo e das tarefas, tornando o percurso acadêmico mais produtivo."
 };
-
-export { ordemAlto, ordemBaixo, ordemMedio };

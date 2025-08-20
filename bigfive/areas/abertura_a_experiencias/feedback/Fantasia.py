@@ -1,9 +1,8 @@
-import type {Avaliacao} from "../../types/Avaliacao.ts";
 
-const fantasiaAlto: Avaliacao = {
-  area: "Abertura à Experiência",
-  faceta: "Fantasía",
-  nivel: "Alto",
+fantasiaAlto = {
+  "area": "Abertura à Experiência",
+  "faceta": "Fantasía",
+  "nivel": "Alto",
   "definicao": "A faceta Fantasia, em nível alto, envolve a tendência de criar cenários mentais vívidos, ultrapassando o presente e explorando possibilidades hipotéticas...",
   "caracteristicas": [
     { "nome": "Visualização de Cenários Futuros", "descricao": ["Costuma imaginar cenários de sucesso, como apresentação final de protótipo ou defesa do TCC."] },
@@ -27,10 +26,10 @@ const fantasiaAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto possuem notável capacidade de se inspirar por meio da imaginação, impulsionando motivação e inovação, mas devem equilibrar criatividade com execução prática."
 };
 
-const fantasiaBaixo: Avaliacao = {
-  area: "Abertura à Experiência",
-  faceta: "Fantasía",
-  nivel: "Baixo",
+fantasiaBaixo = {
+  "area": "Abertura à Experiência",
+  "faceta": "Fantasía",
+  "nivel": "Baixo",
   "definicao": "A faceta Fantasia, em nível baixo, indica menor tendência a usar imaginação para criar cenários futuros ou analogias, resultando em abordagem mais objetiva e prática...",
   "caracteristicas": [
     { "nome": "Pouca Utilização da Imaginação", "descricao": ["Raramente cria histórias ou exemplos mentais para enriquecer conteúdos teóricos ou projetar soluções."] },
@@ -54,10 +53,10 @@ const fantasiaBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo adotam abordagem objetiva e focada, favorecendo execução consistente, mas incorporar elementos que estimulem criatividade pode enriquecer projetos e estudos."
 };
 
-const fantasiaMedio: Avaliacao = {
-  area: "Abertura à Experiência",
-  faceta: "Fantasía",
-  nivel: "Médio",
+fantasiaMedio = {
+  "area": "Abertura à Experiência",
+  "faceta": "Fantasía",
+  "nivel": "Médio",
   "definicao": "A faceta Fantasia, em nível médio, caracteriza-se pelo uso ocasional e equilibrado da imaginação para visualizar cenários futuros e conectar teoria e prática...",
   "caracteristicas": [
     { "nome": "Imaginação Moderada", "descricao": ["Costuma imaginar cenários de sucesso ou criar exemplos mentais, mas retorna rapidamente à execução prática."] },
@@ -82,5 +81,3 @@ const fantasiaMedio: Avaliacao = {
   ],
   "conclusao": "Graduandos com nível médio apresentam equilíbrio saudável entre imaginação e execução, usando criatividade estrategicamente sem perder foco nos resultados acadêmicos."
 };
-
-export { fantasiaAlto, fantasiaBaixo, fantasiaMedio };

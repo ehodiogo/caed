@@ -1,8 +1,8 @@
 
-const ansiedadeAlto: Avaliacao = {
-  area: "Neuroticismo",
-  faceta: "Ansiedade",
-  nivel: "Alto",
+ansiedadeAlto = {
+  "area": "Neuroticismo",
+  "faceta": "Ansiedade",
+  "nivel": "Alto",
   "definicao": "A faceta Ansiedade, em nível alto, refere-se à tendência de experimentar preocupação, tensão e apreensão diante de incertezas e desafios...",
   "caracteristicas": [
     {
@@ -87,10 +87,10 @@ const ansiedadeAlto: Avaliacao = {
   "conclusao": "Graduandos com nível alto da faceta Ansiedade mantêm vigilância constante sobre seu desempenho, o que pode ser vantajoso quando canalizado para planejamento estratégico e aprimoramento do trabalho..."
 };
 
-const ansiedadeBaixo: Avaliacao = {
-  area: "Neuroticismo",
-  faceta: "Ansiedade",
-  nivel: "Baixo",
+ansiedadeBaixo = {
+  "area": "Neuroticismo",
+  "faceta": "Ansiedade",
+  "nivel": "Baixo",
   "definicao": "A faceta Ansiedade, em nível baixo, indica tendência à tranquilidade emocional mesmo diante de situações desafiadoras ou incertas...",
   "caracteristicas": [
     {
@@ -169,10 +169,10 @@ const ansiedadeBaixo: Avaliacao = {
   "conclusao": "Graduandos com nível baixo da faceta Ansiedade preservam a saúde emocional e mantêm regularidade nas tarefas..."
 };
 
-const ansiedadeMedio: Avaliacao = {
-  area: "Neuroticismo",
-  faceta: "Ansiedade",
-  nivel: "Médio",
+ansiedadeMedio = {
+  "area": "Neuroticismo",
+  "faceta": "Ansiedade",
+  "nivel": "Médio",
   "definicao": "A faceta Ansiedade, em nível médio, caracteriza-se por certa oscilação entre tranquilidade e preocupação diante das demandas da graduação...",
   "caracteristicas": [
     {
