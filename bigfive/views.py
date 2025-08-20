@@ -5,3 +5,6 @@ def HomeView(request):
 
 def ContatoView(request):
     return render(request, "Contato.html")
+
+def SobreView(request):
+    return render(request, "Sobre.html")
