@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Formulário {{ formulario.centro.sigla }}{% endblock %}
+
+{% block content %}
+  <h1 class="text-center">
+    Formulário do {{ formulario.centro.sigla }} para o Grau de {{ formulario.get_grau_display }}!
+  </h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <h2>Áreas</h2>
+    {% for area in formulario.areas.all %}
+      <p>{{ area.nome }}</p>
+    {% endfor %}
+
+    {% for pergunta in formulario.perguntas.all %}
+      <div class="mb-3">
+        <p><strong>{{ forloop.counter }}) {{ pergunta }}</strong></p>
+
+        {% for i in "12345" %}
+          <label>
+            <input type="radio" name="pergunta_{{ pergunta.id }}" value="{{ i }}" required>
+            {{ i }}
+          </label>
+        {% endfor %}
+
+        <small>
+          (1 = Discordo totalmente &nbsp;&nbsp; 5 = Concordo totalmente)
+        </small>
+      </div>
+    {% empty %}
+      <p>Sem perguntas cadastradas no formulário.</p>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+{% endblock %}

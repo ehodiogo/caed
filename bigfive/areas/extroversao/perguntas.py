@@ -1,7 +1,7 @@
 perguntas_extroversao = [
     {
         "pergunta": "Prefiro participar de grupos de estudo a trabalhar sempre sozinho(a).",
-        "fator": "Extroversão",
+        "fator": "Gregarismo",
         "reversa": False,
         "feedbacks": {
             "1-2": "Sua preferência por trabalho individual favorece o foco. Para enriquecer perspectivas, agende ao menos um encontro semanal curto com colegas para conversar sobre seus estudos.",
@@ -11,7 +11,7 @@ perguntas_extroversao = [
     },
     {
         "pergunta": "Sinto-me mais animado(a) em ambientes com debates constantes.",
-        "fator": "Extroversão",
+        "fator": "Gregarismo",
         "reversa": False,
         "feedbacks": {
             "1-2": "Ambientes silenciosos aumentam sua produtividade. Use bibliotecas ou salas de estudo reservadas, mas marque check-ins rápidos on-line quando precisar de feedback.",
@@ -21,7 +21,7 @@ perguntas_extroversao = [
     },
     {
         "pergunta": "Gosto de grupos de discussão sobre temas do meu curso.",
-        "fator": "Extroversão",
+        "fator": "Gregarismo",
         "reversa": False,
         "feedbacks": {
             "1-2": "Falar pouco em grupos preserva tempo. Para colher benefícios, participe de fóruns assíncronos e deixe perguntas pontuais — você recebe insights sem reuniões longas.",
@@ -31,7 +31,7 @@ perguntas_extroversao = [
     },
     {
         "pergunta": "Aprendo melhor conversando sobre métodos ou resultados com colegas.",
-        "fator": "Extroversão",
+        "fator": "Gregarismo",
         "reversa": False,
         "feedbacks": {
             "1-2": "Você assimila conteúdo em estudo solo. Para testar compreensão, faça revisões esporádicas com um colega de confiança ou grave um áudio explicando o conceito para si mesmo.",
@@ -41,7 +41,7 @@ perguntas_extroversao = [
     },
     {
         "pergunta": "Sinto-me revigorado(a) após sessões de brainstorming coletivo.",
-        "fator": "Extroversão",
+        "fator": "Gregarismo",
         "reversa": False,
         "feedbacks": {
             "1-2": "Brainstorming intenso pode cansar. Participe apenas das etapas iniciais (mapeamento de ideias) e depois concentre-se em desenvolver soluções individualmente.",
@@ -51,7 +51,7 @@ perguntas_extroversao = [
     },
     {
         "pergunta": "Prefiro estudar isolado(a) para não me distrair.",
-        "fator": "Extroversão",
+        "fator": "Gregarismo",
         "reversa": True,
         "feedbacks": {
             "1-2": "Você aprecia as companhias e aprende bem em grupo. Continue alternando entre debate colaborativo e blocos curtos de estudo solo para fixação dos conceitos.",

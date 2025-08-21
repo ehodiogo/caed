@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Centros{% endblock %}
+
+{% block content %}
+  <h1 class="text-center">Selecione seu centro!</h1>
+
+    {% for centro in centros %}
+        <p>
+          <a href="{% url 'formularios' centro.id %}">
+            {{ centro.nome }} -- {{ centro.sigla }}
+          </a>
+        </p>
+    {% empty %}
+        <p>Sem centros cadastrados.</p>
+    {% endfor %}
+
+{% endblock %}

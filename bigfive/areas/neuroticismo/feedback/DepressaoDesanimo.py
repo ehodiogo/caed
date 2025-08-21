@@ -21,6 +21,12 @@ depressaoAlto = {
       "descricao": ["Ideias recorrentes de desistir da disciplina ou do curso, por acreditar que não conseguirá atender às exigências."]
     }
   ],
+  "vantagensPotenciais": [
+    {
+      "nome": "",
+      "descricao": [""],
+    }
+  ],
   "dificuldadesPotenciais": [
     {
       "nome": "Atrasos e Abandono",

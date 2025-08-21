@@ -20,13 +20,6 @@ ansiedadeAlto = {
       ]
     }
   ],
-  sintomasFisicos: [
-    "Aceleração cardíaca",
-    "Tensão muscular",
-    "Sudorese",
-    "Insônia",
-    "Cansaço persistente"
-  ],
   "vantagensPotenciais": [
     {
       "nome": "Prevenção e preparo antecipado",

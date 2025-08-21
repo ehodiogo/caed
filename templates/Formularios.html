@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Formulários do {{ centro.sigla }}{% endblock %}
+
+{% block content %}
+  <h1 class="text-center">Selecione o formulário para o centro {{ centro.sigla }}!</h1>
+
+    {% for formulario in formularios %}
+        <p>
+          <a href="{% url 'formulario' formulario.id %}">
+            {{ formulario.grau }} -- {{ centro.sigla }}
+          </a>
+        </p>
+    {% empty %}
+        <p>Sem formulário cadastro no centro.</p>
+    {% endfor %}
+
+{% endblock %}

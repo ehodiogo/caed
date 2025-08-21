@@ -1,6 +1,15 @@
 from usuario.models import User
 from django.db import models
 
+class Nivelamento(models.Model):
+    nome = models.CharField(max_length=15)
+    num_nivel = models.IntegerField()
+    nota_min = models.FloatField()
+    nota_max = models.FloatField()
+
+    def __str__(self):
+        return self.nome
+
 class Vantagem(models.Model):
     nome = models.CharField(max_length=100)
     explicacao = models.TextField()
@@ -74,9 +83,18 @@ class Pergunta(models.Model):
     def __str__(self):
         return self.pergunta
 
+class GrauChoices(models.TextChoices):
+    docente = ('docente', 'Docente')
+    discente =('discente', 'Discente')
+
+class Centro(models.Model):
+    nome = models.CharField(max_length=100)
+    sigla = models.CharField(max_length=8)
+
 class Formulario(models.Model):
 
-    centro = models.CharField(max_length=100)
+    centro = models.ForeignKey(Centro, on_delete=models.CASCADE)
+    grau = models.CharField(max_length=10, choices=GrauChoices.choices)
     areas = models.ManyToManyField(Area)
     perguntas = models.ManyToManyField(Pergunta)
 
