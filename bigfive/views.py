@@ -2,6 +2,15 @@ from django.shortcuts import render, get_object_or_404
 
 from .get_result import GetResult
 from .models import Centro, Formulario, Nivelamento, Pergunta
+
+def RegistroView(request):
+    return render(request, 'Registro.html')
+
+def LoginView(request):
+    return render(request, 'Login.html')
+
+def AccountView(request):
+    return render(request, 'Account.html')
 def HomeView(request):
     return render(request, "Home.html")
 
